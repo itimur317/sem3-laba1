@@ -37,9 +37,11 @@ void interface() {
         cin >> indikator;
 
         if (indikator == 1) {
-            cout << "length of sequence: " << endl;
+            cout << "length of sequence [0, 32000] : " << endl;
             int length = 0;
             cin >> length;
+            if (0 > length || length > 32000)
+                throw out_of_range(IndexOutOfRangeEx);
             ArraySequence<int> arr_seq(length);
             Sequence <int>* seq = &arr_seq;
             cout << "enter elements of your sequence: " << endl;
@@ -67,9 +69,11 @@ void interface() {
         }
 
         else if (indikator == 2) {
-            cout << "length of sequence: " << endl;
+            cout << "length of sequence [0, 32000] : " << endl;
             int length = 0;
             cin >> length;
+            if (0 > length || length > 32000)
+                throw out_of_range(IndexOutOfRangeEx);
             ArraySequence<int> arr_seq1(length);
             Sequence <int>* seq1 = &arr_seq1;
             cout << "enter elements of your sequence: " << endl;
@@ -111,10 +115,10 @@ void interface() {
         }
 
         else if (3 == indikator) {
-            cout << "enter your length [0, 10000];" << endl << "length = ";
+            cout << "enter your length [0, 32000];" << endl << "length = ";
             int length = 0;
             cin >> length;
-            if (0 > length || length > 10000)
+            if (0 > length || length > 32000)
                 throw out_of_range(IndexOutOfRangeEx);
             ArraySequence<int> random_arr(length);
             Sequence<int>* seq = &random_arr;
@@ -149,10 +153,15 @@ void interface() {
             cout << "3) best sort for random sorted sequence" << endl;
             cin >> indikator;
             if (1 == indikator) {
-                ArraySequence<int> sorted_arr(100);
+                cout << "length of sequence [0, 32000] : " << endl;
+                int length = 0;
+                cin >> length;
+                if (0 > length || length > 32000)
+                    throw out_of_range(IndexOutOfRangeEx);
+                ArraySequence<int> sorted_arr(length);
                 Sequence<int>* seq1 = &sorted_arr;
-                for (int i = 0; i < 100; i++) {
-                    seq1->Set(i, i - 50);
+                for (int i = 0; i < length; i++) {
+                    seq1->Set(i, i - length / 2);
                 }
                 cout << "sorted sequence:" << endl;
                 seq1->print();
@@ -190,10 +199,15 @@ void interface() {
             }
 
             else if (2 == indikator) {
-                ArraySequence<int> sorted_arr(100);
+                cout << "length of sequence [0, 32000] : " << endl;
+                int length = 0;
+                cin >> length;
+                if (0 > length || length > 32000)
+                    throw out_of_range(IndexOutOfRangeEx);
+                ArraySequence<int> sorted_arr(length);
                 Sequence<int>* seq1 = &sorted_arr;
-                for (int i = 99; i >= 0; i--) {
-                    seq1->Set(i, i - 49);
+                for (int i = 0; i < length;i++) {
+                    seq1->Set(i, length / 2 - i);
                 }
                 cout << "backward sorted sequence:" << endl;
                 seq1->print();
@@ -231,10 +245,15 @@ void interface() {
             }
 
             else if (3 == indikator) {
-                ArraySequence<int> sorted_arr(100);
+                cout << "length of sequence [0, 32000] : " << endl;
+                int length = 0;
+                cin >> length;
+                if (0 > length || length > 32000)
+                    throw out_of_range(IndexOutOfRangeEx);
+                ArraySequence<int> sorted_arr(length);
                 Sequence<int>* seq1 = &sorted_arr;
-                for (int i = 0; i < 100; i++) {
-                    seq1->Set(i, -50 + rand() % 1000);
+                for (int i = 0; i < length; i++) {
+                    seq1->Set(i, -length / 2 + rand() % length);
                 }
                 cout << "randomly sorted sequence:" << endl;
                 seq1->print();

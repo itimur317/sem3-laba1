@@ -56,6 +56,8 @@ public:
         for (int i = 0; i < this->size; i++) {
             cout << cur->items << "  ";
             cur = cur->next;
+            if (i != 0 && i % 14 == 0)
+                cout << endl;
         }
         cout << endl;
     }

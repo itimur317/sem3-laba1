@@ -94,6 +94,8 @@ public:
     void print_array() {
         for (int i = 0; i < this->size; i++) {
             cout << this->items[i] << "  ";
+            if (i != 0 && i % 14 == 0)
+                cout << endl;
         }
         cout << endl;
     }
