@@ -24,7 +24,6 @@ void merge(Sequence<T>* seq, int (*cmp)(T, T), int left, int mid, int right) {
     int right_leng = right - mid;
 
 
-
     ArraySequence<T> first_tmp(left_leng), second_tmp(right_leng);               // создадим временные сиквенсы
     Sequence<T>* left_seq = &first_tmp;
     Sequence<T>* right_seq = &second_tmp;

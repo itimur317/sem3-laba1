@@ -53,7 +53,7 @@ public:
 
     void print_list() {
         node* cur = head;
-        for (int i = 0; i < this->size; i++) {
+        for (int i = 0; i < this->size && i < 100; i++) {
             cout << cur->items << "  ";
             cur = cur->next;
             if (i != 0 && i % 14 == 0)
